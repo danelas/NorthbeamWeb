@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config/site';
+
+const formAction = SITE.formspreeId
+  ? `https://formspree.io/f/${SITE.formspreeId}`
+  : '#';
+---
+<Base title={`Contact — ${SITE.brand}`} description="Book a 15-minute call to talk about your website. No commitment, no pressure.">
+  <section class="pt-16 pb-20">
+    <div class="container-tight grid md:grid-cols-5 gap-12">
+      <div class="md:col-span-2">
+        <span class="eyebrow">Get in touch</span>
+        <h1 class="mt-4 text-4xl md:text-5xl font-serif leading-tight text-ink-900">
+          Let's look at your site together.
+        </h1>
+        <p class="mt-5 text-ink-600 text-lg">
+          A 15-minute call. We pull up your current site, you tell us what it should be doing, and we quote a rebuild on the spot. No commitment.
+        </p>
+        <div class="mt-8 space-y-4 text-sm">
+          <div class="flex items-start gap-3">
+            <svg class="mt-0.5 h-5 w-5 text-accent-700 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <div class="text-ink-500">Email</div>
+              <a href={`mailto:${SITE.email}`} class="text-ink-900 hover:text-accent-700">{SITE.email}</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="mt-0.5 h-5 w-5 text-accent-700 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <div class="text-ink-500">Phone</div>
+              <a href={SITE.phoneHref} class="text-ink-900 hover:text-accent-700">{SITE.phone}</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="mt-0.5 h-5 w-5 text-accent-700 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <div class="text-ink-500">Hours</div>
+              <div class="text-ink-900">{SITE.hours}</div>
+            </div>
+          </div>
+        </div>
+
+        {SITE.calComUser && (
+          <div class="mt-8 rounded-lg border border-accent-200 bg-accent-50 p-4 text-sm">
+            <div class="font-medium text-accent-900">Pick a time directly</div>
+            <a href={`https://cal.com/${SITE.calComUser}/15min`} class="mt-1 inline-block text-accent-700 hover:text-accent-800">Open my calendar →</a>
+          </div>
+        )}
+      </div>
+
+      <div class="md:col-span-3">
+        <div class="rounded-2xl border border-ink-200 bg-white p-7 shadow-sm">
+          <h2 class="text-xl font-serif text-ink-900">Tell us about your site.</h2>
+          <p class="mt-1 text-sm text-ink-500">We reply within one business day.</p>
+          <form action={formAction} method="POST" class="mt-6 space-y-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-xs font-medium text-ink-600">Your name</span>
+                <input type="text" name="name" required class="mt-1 w-full rounded-md border border-ink-200 px-3 py-2.5 text-sm focus:border-accent-700 focus:ring-1 focus:ring-accent-700 focus:outline-none" />
+              </label>
+              <label class="block">
+                <span class="text-xs font-medium text-ink-600">Business name</span>
+                <input type="text" name="business" required class="mt-1 w-full rounded-md border border-ink-200 px-3 py-2.5 text-sm focus:border-accent-700 focus:ring-1 focus:ring-accent-700 focus:outline-none" />
+              </label>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-xs font-medium text-ink-600">Email</span>
+                <input type="email" name="email" required class="mt-1 w-full rounded-md border border-ink-200 px-3 py-2.5 text-sm focus:border-accent-700 focus:ring-1 focus:ring-accent-700 focus:outline-none" />
+              </label>
+              <label class="block">
+                <span class="text-xs font-medium text-ink-600">Phone (optional)</span>
+                <input type="tel" name="phone" class="mt-1 w-full rounded-md border border-ink-200 px-3 py-2.5 text-sm focus:border-accent-700 focus:ring-1 focus:ring-accent-700 focus:outline-none" />
+              </label>
+            </div>
+            <label class="block">
+              <span class="text-xs font-medium text-ink-600">Current website (if any)</span>
+              <input type="url" name="website" placeholder="https://" class="mt-1 w-full rounded-md border border-ink-200 px-3 py-2.5 text-sm focus:border-accent-700 focus:ring-1 focus:ring-accent-700 focus:outline-none" />
+            </label>
+            <label class="block">
+              <span class="text-xs font-medium text-ink-600">What's wrong with it?</span>
+              <textarea name="message" rows="4" class="mt-1 w-full rounded-md border border-ink-200 px-3 py-2.5 text-sm focus:border-accent-700 focus:ring-1 focus:ring-accent-700 focus:outline-none"></textarea>
+            </label>
+            <button type="submit" class="btn-primary w-full sm:w-auto">Send message</button>
+            <p class="text-xs text-ink-400">By submitting, you agree to be contacted about your inquiry. We don't share your info.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

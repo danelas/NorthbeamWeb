@@ -1,0 +1,20 @@
+---
+import { SITE } from '../config/site';
+const year = new Date().getFullYear();
+---
+<footer class="mt-24 border-t border-ink-200/70 bg-white/50">
+  <div class="container-tight py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-ink-500">
+    <div>
+      &copy; {year} {SITE.brand}. All rights reserved.
+    </div>
+    <div class="flex items-center gap-5 flex-wrap">
+      <a href="/pricing" class="hover:text-ink-800">Pricing</a>
+      <a href="/work" class="hover:text-ink-800">Work</a>
+      <a href="/contact" class="hover:text-ink-800">Contact</a>
+      {SITE.stripePortal && (
+        <a href={SITE.stripePortal} class="hover:text-ink-800">Billing</a>
+      )}
+      <a href={`mailto:${SITE.email}`} class="hover:text-ink-800">{SITE.email}</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,35 @@
+---
+import { SITE } from '../config/site';
+
+const links = [
+  { href: '/work', label: 'Work' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+const path = Astro.url.pathname;
+---
+<header class="border-b border-ink-200/70 bg-ink-50/85 backdrop-blur sticky top-0 z-30">
+  <div class="container-tight flex h-16 items-center justify-between">
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-accent-700 text-white">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 20V4l16 16V4" />
+        </svg>
+      </span>
+      <span class="font-serif text-lg text-ink-900 group-hover:text-accent-800">{SITE.brand}</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class={`text-ink-600 hover:text-ink-900 ${path === l.href ? 'text-ink-900 font-medium' : ''}`}
+        >
+          {l.label}
+        </a>
+      ))}
+      <a href="/contact" class="btn-primary !py-2 !px-4 text-sm">Book a call</a>
+    </nav>
+    <a href="/contact" class="md:hidden text-sm font-medium text-accent-700">Contact</a>
+  </div>
+</header>

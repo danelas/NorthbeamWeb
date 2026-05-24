@@ -1,0 +1,26 @@
+---
+interface Props {
+  heading?: string;
+  body?: string;
+}
+const {
+  heading = 'Your website should be earning its keep.',
+  body = 'Book a 15-minute call. We’ll audit what you have and quote a rebuild on the spot.',
+} = Astro.props;
+---
+<section class="mt-20">
+  <div class="container-tight">
+    <div class="rounded-2xl bg-ink-900 text-white px-8 py-12 md:px-14 md:py-16 relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-accent-700/30 blur-3xl"></div>
+      <div class="absolute -left-10 -bottom-20 h-56 w-56 rounded-full bg-accent-500/20 blur-3xl"></div>
+      <div class="relative max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-serif leading-tight">{heading}</h2>
+        <p class="mt-4 text-ink-200 text-lg">{body}</p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="/contact" class="btn bg-white text-ink-900 hover:bg-ink-100">Book a 15-min call</a>
+          <a href="/pricing" class="btn border border-ink-700 text-white hover:bg-ink-800">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

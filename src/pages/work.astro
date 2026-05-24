@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import CTA from '../components/CTA.astro';
+import { SITE } from '../config/site';
+
+const projects = [
+  {
+    business: "Marco's Auto Body",
+    vertical: 'Concept rebuild · Auto repair',
+    beforeYear: '2011',
+    afterHero: 'Free estimate in 24 hours.',
+    ctaLabel: 'Get estimate',
+    beforeNote: 'No mobile layout. Broken contact form. Phone number buried in a footer image.',
+    afterNote: 'Click-to-call hero. Estimate form lands in your inbox and texts your phone.',
+  },
+  {
+    business: 'Linden Hill Salon',
+    vertical: 'Concept rebuild · Beauty',
+    beforeYear: '2015',
+    afterHero: 'Color, cuts, blowouts — by appointment.',
+    ctaLabel: 'Book now',
+    beforeNote: 'PDF price list opened in a new tab. No online booking.',
+    afterNote: 'Service menu on page. Square booking embedded. Live stylist availability.',
+  },
+  {
+    business: 'Calder & Sons Plumbing',
+    vertical: 'Concept rebuild · Trades',
+    beforeYear: '2008',
+    afterHero: '24/7 emergency plumbing. We answer.',
+    ctaLabel: 'Call now',
+    beforeNote: 'Flash-era layout. Dead emergency phone link. No reviews shown.',
+    afterNote: 'One-tap emergency call. Live Google reviews. Service-area map.',
+  },
+  {
+    business: 'Polara Coffee',
+    vertical: 'Concept rebuild · Restaurant',
+    beforeYear: '2017',
+    afterHero: 'Single-origin coffee. Hand-pulled, every cup.',
+    ctaLabel: 'Order pickup',
+    beforeNote: 'Menu hosted on Facebook. Hours wrong on Google. No photos under 5 years old.',
+    afterNote: 'Menu and hours synced in one place. Pickup order link. Photo gallery from local shoot.',
+  },
+  {
+    business: 'Beacon Hill Dental',
+    vertical: 'Concept rebuild · Healthcare',
+    beforeYear: '2013',
+    afterHero: 'Family dentistry. New patients welcome.',
+    ctaLabel: 'Book visit',
+    beforeNote: 'Insurance list as a 2018 image. Patient forms required mailing in.',
+    afterNote: 'Searchable insurance list. New-patient forms fillable on phone. HIPAA-aware hosting.',
+  },
+  {
+    business: 'Greenline Landscaping',
+    vertical: 'Concept rebuild · Trades',
+    beforeYear: '2012',
+    afterHero: 'Lawn care, hardscape, and design — quoted fast.',
+    ctaLabel: 'Get quote',
+    beforeNote: 'Quote form went to a bounced email address for 14 months.',
+    afterNote: 'Quote form delivers to inbox + SMS within seconds. Auto-reply with next steps.',
+  },
+];
+---
+<Base title={`Work — ${SITE.brand}`} description="A selection of broken-website rebuilds for small businesses.">
+  <section class="pt-16 pb-8">
+    <div class="container-tight max-w-3xl">
+      <span class="eyebrow">Selected work</span>
+      <h1 class="mt-4 text-4xl md:text-5xl font-serif leading-tight text-ink-900">
+        Real businesses. Real broken sites. Honest rebuilds.
+      </h1>
+      <p class="mt-5 text-ink-600 text-lg">
+        Most of what's below is concept work — rebuilds of real local sites we found through cold outreach. Where you see a client name, the project is live. Where you don't, the original owner hasn't engaged us yet, so we keep them anonymous.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="container-tight grid md:grid-cols-2 gap-6">
+      {projects.map((p) => (
+        <BeforeAfter
+          business={p.business}
+          vertical={p.vertical}
+          beforeNote={p.beforeNote}
+          afterNote={p.afterNote}
+          beforeYear={p.beforeYear}
+          afterHero={p.afterHero}
+          ctaLabel={p.ctaLabel}
+        />
+      ))}
+    </div>
+  </section>
+
+  <CTA
+    heading="Don't see your industry?"
+    body="We rebuild for any small business with a website that isn't pulling its weight. Most rebuilds take 5 days."
+  />
+</Base>

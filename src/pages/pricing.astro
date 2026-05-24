@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import { SITE } from '../config/site';
+
+const tiers = [
+  {
+    name: 'Starter',
+    setup: 299,
+    monthly: 99,
+    blurb: 'For a single-location business that just needs a clean, working presence.',
+    features: [
+      'Up to 5 pages',
+      'Mobile-first design',
+      'Hosting + SSL + daily backups',
+      '1 content update per month',
+      'Contact form with email + SMS delivery',
+      'Google Business Profile cleanup',
+    ],
+    cta: 'Choose Starter',
+    href: SITE.stripeLinks.starter ?? '/contact',
+    highlight: false,
+  },
+  {
+    name: 'Standard',
+    setup: 299,
+    monthly: 149,
+    blurb: 'Our most popular plan. The right fit for almost every small business.',
+    features: [
+      'Up to 10 pages',
+      'Everything in Starter',
+      '3 content updates per month',
+      'Monthly performance report',
+      'Booking / quote form integrations',
+      'Google reviews on-site',
+      'On-page SEO basics',
+    ],
+    cta: 'Choose Standard',
+    href: SITE.stripeLinks.standard ?? '/contact',
+    highlight: true,
+  },
+  {
+    name: 'Pro',
+    setup: 499,
+    monthly: 249,
+    blurb: 'For businesses doing more — content marketing, ongoing campaigns, multiple services.',
+    features: [
+      'Unlimited pages',
+      'Everything in Standard',
+      'Weekly content updates',
+      'Blog setup + 1 post/month',
+      'Analytics dashboard',
+      'Priority email + text support',
+      'Quarterly strategy call',
+    ],
+    cta: 'Choose Pro',
+    href: SITE.stripeLinks.pro ?? '/contact',
+    highlight: false,
+  },
+];
+
+const includedAlways = [
+  'Hosting on enterprise-grade CDN (99.99% uptime)',
+  'Free SSL certificate, auto-renewed',
+  'Daily off-site backups',
+  'Security patches and uptime monitoring',
+  'You own your domain and content',
+  'Full export on cancellation',
+  'Month-to-month, cancel anytime',
+  '14-day money-back on setup fee',
+];
+---
+<Base title={`Pricing — ${SITE.brand}`} description="Flat monthly pricing for small business websites. Hosting, security, backups, and updates included.">
+  <section class="pt-16 pb-10">
+    <div class="container-tight max-w-3xl">
+      <span class="eyebrow">Pricing</span>
+      <h1 class="mt-4 text-4xl md:text-5xl font-serif leading-tight text-ink-900">
+        One flat monthly price. Everything included.
+      </h1>
+      <p class="mt-5 text-ink-600 text-lg">
+        Most agencies charge $3,000–$8,000 to build a small business website and then leave you to figure out hosting, security, and updates. We don't. One number a month. We handle the rest.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-10">
+    <div class="container-tight grid md:grid-cols-3 gap-6">
+      {tiers.map((t) => (
+        <div class={`relative rounded-2xl border p-7 flex flex-col ${t.highlight ? 'border-accent-700 bg-white shadow-lg shadow-accent-700/5 md:-mt-4 md:mb-4' : 'border-ink-200 bg-white'}`}>
+          {t.highlight && (
+            <span class="absolute -top-3 left-7 bg-accent-700 text-white text-[11px] uppercase tracking-wider px-2.5 py-1 rounded">Most popular</span>
+          )}
+          <div class="text-sm font-medium text-ink-500">{t.name}</div>
+          <div class="mt-3 flex items-baseline gap-1.5">
+            <span class="text-4xl font-serif text-ink-900">${t.monthly}</span>
+            <span class="text-ink-500">/mo</span>
+          </div>
+          <div class="mt-1 text-sm text-ink-500">+ ${t.setup} one-time setup</div>
+          <p class="mt-4 text-sm text-ink-600">{t.blurb}</p>
+          <ul class="mt-6 space-y-2.5 text-sm">
+            {t.features.map((f) => (
+              <li class="flex items-start gap-2">
+                <svg class="mt-0.5 h-4 w-4 flex-none text-accent-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-ink-700">{f}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={t.href} class={`mt-7 ${t.highlight ? 'btn-primary' : 'btn-secondary'}`}>{t.cta}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-20 bg-white border-y border-ink-200/70 mt-12">
+    <div class="container-tight">
+      <div class="max-w-2xl mb-10">
+        <span class="eyebrow">Bundled into every plan</span>
+        <h2 class="mt-3 text-3xl font-serif text-ink-900">No à la carte fees. No surprises.</h2>
+        <p class="mt-3 text-ink-600">If it's listed below, it's already in your monthly price.</p>
+      </div>
+      <ul class="grid sm:grid-cols-2 gap-3">
+        {includedAlways.map((item) => (
+          <li class="flex items-start gap-3 text-ink-700">
+            <svg class="mt-1 h-4 w-4 flex-none text-accent-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-tight max-w-3xl">
+      <h2 class="text-2xl font-serif text-ink-900">A note on hosting and "ownership."</h2>
+      <p class="mt-4 text-ink-600">
+        Your domain name stays in your name from day one — we never put it on our account. If you ever decide to leave, you get a full export of your site (HTML, images, content). The only thing we charge is for the monthly hosting and maintenance you'd otherwise have to manage yourself.
+      </p>
+    </div>
+  </section>
+
+  <CTA
+    heading="Not sure which plan?"
+    body="Book a 15-minute call. We'll look at your current site together and tell you what makes sense — no pressure, no upsell."
+  />
+</Base>

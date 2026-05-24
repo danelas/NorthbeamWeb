@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+import { SITE } from '../config/site';
+
+const principles = [
+  {
+    title: 'One person, start to finish.',
+    body: 'You will not get bounced between an account manager, a designer, and a developer. The person on your first call is the person building your site.',
+  },
+  {
+    title: 'No contracts, ever.',
+    body: 'If we are not doing right by you, you cancel. Full content export, no friction. Most of our clients stay for years — and that is on us to earn every month.',
+  },
+  {
+    title: 'Boring tech.',
+    body: 'Static sites on a fast CDN. No CMS to get hacked, no plugins to break, no nightly maintenance window. Your site loads in under a second and stays online.',
+  },
+  {
+    title: 'Honest pricing.',
+    body: 'You will never get a surprise invoice. The price on our pricing page is the price you pay — for as long as you stay with us.',
+  },
+];
+---
+<Base title={`About — ${SITE.brand}`} description="A small studio rebuilding broken small-business websites. One person on your project from start to finish.">
+  <section class="pt-16 pb-10">
+    <div class="container-prose">
+      <span class="eyebrow">About</span>
+      <h1 class="mt-4 text-4xl md:text-5xl font-serif leading-tight text-ink-900">
+        A small studio. Built around one promise: your site works, every day.
+      </h1>
+      <p class="mt-6 text-ink-600 text-lg leading-relaxed">
+        Most small businesses pay an agency thousands of dollars for a website and then watch it slowly fall apart — broken forms, outdated photos, "site not secure" warnings, hours that haven't been updated since 2019. {SITE.brand} exists because that should not be the default.
+      </p>
+      <p class="mt-4 text-ink-600 text-lg leading-relaxed">
+        We rebuild your site for a flat one-time fee and then keep it running for a flat monthly fee. No contracts, no surprises, no upsells. If the site goes down at 2am, that is our problem, not yours.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white border-y border-ink-200/70">
+    <div class="container-tight">
+      <div class="max-w-2xl mb-10">
+        <span class="eyebrow">How we work</span>
+        <h2 class="mt-3 text-3xl md:text-4xl font-serif">Four principles. That's it.</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+        {principles.map((p) => (
+          <div>
+            <h3 class="text-xl font-serif text-ink-900">{p.title}</h3>
+            <p class="mt-3 text-ink-600 leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container-prose">
+      <h2 class="text-2xl font-serif text-ink-900">Who you'll be working with.</h2>
+      <div class="mt-6 flex items-start gap-5">
+        <div class="h-16 w-16 rounded-full bg-gradient-to-br from-accent-200 to-accent-500 flex-none"></div>
+        <div>
+          <div class="font-medium text-ink-900">Dan — Founder &amp; lead developer</div>
+          <div class="text-sm text-ink-500">{SITE.brand}</div>
+          <p class="mt-3 text-ink-600 leading-relaxed">
+            I've been building software for over a decade. I started {SITE.brand} because I kept seeing the same pattern on small-business websites: huge invoice, slick launch, then six months of neglect until everything is broken. I wanted to do the opposite — affordable upfront, then bulletproof for as long as you want it.
+          </p>
+          <p class="mt-3 text-sm text-ink-500">
+            Want to talk to me directly? <a href="/contact" class="text-accent-700 hover:text-accent-800">Book a 15-minute call.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</Base>
