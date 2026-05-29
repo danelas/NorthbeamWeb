@@ -41,7 +41,7 @@ The fastest start with zero spend:
 3. Note: business name, phone, website URL, **one specific broken thing**.
 4. Target: 20 leads/day = 100/week.
 
-The "one specific broken thing" is gold for your opener: *"Hey, this is Dan from Northbeam — I was looking at your site and noticed the booking form goes to a 2018 PDF. Got 60 seconds?"*
+The "one specific broken thing" is gold for your opener: *"Hey, this is Dan from Northbeam Web — I was looking at your site and noticed the booking form goes to a 2018 PDF. Got 60 seconds?"*
 
 ### Tier 2 — Tools that find broken sites at scale ($0–$50/mo)
 

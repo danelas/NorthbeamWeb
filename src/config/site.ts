@@ -26,6 +26,7 @@ export const SITE = {
   // Formspree form id (e.g. "xkgjabcd"). The contact form posts here.
   formspreeId: null as string | null,
 
-  // Stripe Customer Portal link (one URL for all customers to manage billing)
+  // Stripe Customer Portal link (one URL for all customers to manage billing).
+  // Get from Stripe Dashboard → Settings → Billing → Customer portal → "Login link"
   stripePortal: null as string | null,
 };

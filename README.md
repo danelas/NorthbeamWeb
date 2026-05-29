@@ -2,7 +2,7 @@
 
 Portfolio + lead site for a productized web-rescue agency. Astro + Tailwind, static deploy.
 
-> Folder is named `mainline-web/` (the original placeholder name) — feel free to rename it to `northbeam-web/`. The git repo and `package.json` already say `northbeam-web`.
+> Folder is named `mainline-web/` (the original placeholder name) — feel free to rename it to `mainline-web/`. The git repo and `package.json` already say `mainline-web`.
 
 ## Quick start
 

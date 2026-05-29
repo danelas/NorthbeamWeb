@@ -91,7 +91,7 @@ Each service = one entry in the "Services" section of the profile.
 
 Google ranks profiles with photos significantly higher than those without.
 
-- **Logo** (square, min 250×250). Use the Northbeam "N" mark or your wordmark. Generate one at [looka.com](https://looka.com) ($20) or commission one on Fiverr ($30) — don't skip this.
+- **Logo** (square, min 250×250). Use the Northbeam Web "N" mark or your wordmark. Generate one at [looka.com](https://looka.com) ($20) or commission one on Fiverr ($30) — don't skip this.
 - **Cover photo** (landscape, min 1024×575). A clean shot of you at a laptop, or an abstract textured image.
 - **At least 3 "team" photos** — even just one photo of you, taken 3 times in different settings/outfits, works.
 - **At least 3 work samples** — screenshots of your concept rebuilds (the BeforeAfter cards on /work).

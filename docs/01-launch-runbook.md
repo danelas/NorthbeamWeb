@@ -69,7 +69,7 @@ See [docs/02-stripe-setup.md](02-stripe-setup.md). Detailed step-by-step with ex
 **You need:** an email address.
 
 1. Go to [formspree.io](https://formspree.io) → sign up.
-2. New form → name it "Northbeam contact" → destination email = your `hello@northbeamweb.com`.
+2. New form → name it "Northbeam Web contact" → destination email = your `hello@northbeamweb.com`.
 3. Copy the form ID (looks like `xkgjabcd`).
 4. Set in `src/config/site.ts`:
    ```ts
@@ -85,7 +85,7 @@ Free plan allows 50 submissions/month. Upgrade to $10/mo if you outgrow it.
 **You need:** a Google account (for calendar sync).
 
 1. Go to [cal.com](https://cal.com) → sign up with Google.
-2. Pick a username (e.g., `dan-northbeam` or `northbeamweb`).
+2. Pick a username (e.g., `dan-northbeam` or `mainlineweb`).
 3. Create a single event type: "15-minute website audit" — 15 min, weekdays 9am–5pm ET, your timezone.
 4. Connect your Google Calendar so it auto-blocks busy times.
 5. Set in `src/config/site.ts`:
@@ -108,7 +108,7 @@ cd C:\Users\dandu\Downloads\mainline-web
 git init
 git add .
 git commit -m "Initial Northbeam Web site"
-gh repo create northbeam-web --private --source=. --remote=origin --push
+gh repo create mainline-web --private --source=. --remote=origin --push
 ```
 
 (If you don't have `gh` CLI: create the repo manually at github.com/new, then `git remote add origin <url>` and `git push -u origin main`.)
@@ -116,9 +116,9 @@ gh repo create northbeam-web --private --source=. --remote=origin --push
 ### Connect to Vercel
 
 1. Go to [vercel.com/new](https://vercel.com/new) → sign in with GitHub.
-2. Import `northbeam-web` repo.
+2. Import `mainline-web` repo.
 3. Framework preset: **Astro** (auto-detected).
-4. Click **Deploy**. Live in ~60 seconds at `northbeam-web.vercel.app`.
+4. Click **Deploy**. Live in ~60 seconds at `mainline-web.vercel.app`.
 
 ### Wire your custom domain
 

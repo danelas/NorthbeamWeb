@@ -69,7 +69,7 @@ For each link, you'll add **two prices to the same checkout**:
 2. Add `Northbeam Web — Starter` ($99/mo, recurring)
 3. **Customer can adjust quantity:** off for both
 4. **After payment:** "Show confirmation page"
-5. **Confirmation message:** `Welcome to Northbeam! We'll be in touch within one business day to start your site.`
+5. **Confirmation message:** `Welcome to Northbeam Web! We'll be in touch within one business day to start your site.`
 6. **Collect billing address:** yes
 7. **Collect phone number:** yes
 8. **Save & copy the URL** — looks like `https://buy.stripe.com/abc123...`
@@ -102,23 +102,58 @@ Save, redeploy. Pricing page CTAs now go straight to Stripe Checkout.
 
 ## Step 6 — Customer Portal (so clients can self-cancel)
 
-This is critical for the "month-to-month, cancel anytime" trust pitch.
+This is critical for the "month-to-month, cancel anytime" trust pitch. There's already a `/billing` page on the site that links here — you just need to flip Stripe on.
 
-1. Dashboard → **Settings** → **Customer Portal** → **Activate test link / live link**.
-2. Configure:
-   - **Allow customers to update payment method:** yes
-   - **Allow customers to cancel subscriptions:** yes
-   - **Cancellation reason:** ask (optional, helpful for you)
-   - **Update subscription quantity:** off
-   - **Switch plans:** yes — let them upgrade Starter → Standard → Pro themselves
-   - **Allow invoice history:** yes
-3. Save. Copy the **Login link** Stripe gives you.
-4. Set in `src/config/site.ts`:
-   ```ts
-   stripePortal: 'https://billing.stripe.com/p/login/REPLACE_ME',
-   ```
+### How the portal works (in plain English)
 
-A "Billing" link will appear in the site footer.
+Stripe hosts a fully-built billing dashboard at a URL like `https://billing.stripe.com/p/login/...`. When a client visits it, Stripe asks for their email, sends them a one-time secure link, and lets them:
+
+- Update their card on file
+- Download past invoices
+- Switch between Starter / Standard / Pro (with proration)
+- Cancel their subscription
+
+You don't write any code. Stripe handles auth, security, PCI compliance, the whole thing.
+
+### Setup (5 minutes)
+
+1. Stripe Dashboard → **Settings** → **Billing** → **Customer portal** (direct link: [dashboard.stripe.com/settings/billing/portal](https://dashboard.stripe.com/settings/billing/portal))
+2. Under **Features**, toggle:
+   - ✅ **Customers can update their payment method**
+   - ✅ **Customers can update their billing address**
+   - ✅ **Customers can view their invoice history**
+   - ✅ **Customers can cancel subscriptions** → set "Cancellation mode" to **At end of billing period** (gives them service through what they paid for, no refund argument)
+   - ✅ **Cancellation reason** → enable to learn why people leave (optional but useful)
+   - ✅ **Customers can switch plans** → add all 3 of your products (Starter / Standard / Pro). Set "Proration behavior" to **Always prorate**.
+   - ⬜ **Customers can update subscription quantity** → leave off
+3. Under **Business information**:
+   - **Headline:** `Manage your Northbeam Web subscription`
+   - **Privacy policy URL:** `https://northbeamweb.com/privacy` (create this page later — for now use the homepage URL)
+   - **Terms of service URL:** `https://northbeamweb.com/terms` (same)
+4. **Save changes.**
+5. Scroll to the top — Stripe now shows a **"Activate" / "Test link"** card with a URL that looks like `https://billing.stripe.com/p/login/test_XXXXXXX` (test mode) or `https://billing.stripe.com/p/login/XXXXXXX` (live mode).
+6. Copy the live-mode URL.
+
+### Wire it into the site
+
+Open `src/config/site.ts` and set:
+
+```ts
+stripePortal: 'https://billing.stripe.com/p/login/YOUR_LIVE_KEY_HERE',
+```
+
+Save, redeploy. The `/billing` page now shows an **"Open billing portal →"** button that takes clients straight to Stripe. Before you set this value, the page falls back to a "Billing portal coming soon — email us" panel, so the page works in both states.
+
+### Test it once with a real subscription
+
+You can't test the portal without a real customer subscription. Use your own card from the test you did in Step 9 — your portal login will work for that subscription, and you can verify the upgrade/cancel flows look right.
+
+### Why this matters for the sales pitch
+
+On a cold call, when a prospect says *"What if I don't like it and want to leave?"* — you say:
+> *"One click on our billing page cancels you. No call required, no exit interview. The button is right there on the site."*
+
+That's a massive trust unlock. Most "agencies" make you email three times and wait two weeks to cancel. Pointing at a self-serve portal makes you the opposite of that.
 
 ---
 

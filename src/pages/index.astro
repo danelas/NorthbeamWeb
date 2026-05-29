@@ -75,13 +75,13 @@ const faqs = [
       </div>
       <div>
         <BeforeAfter
-          business="Marco's Auto Body"
-          vertical="Concept rebuild · Auto repair"
-          beforeYear="2011"
-          afterHero="Free estimate in 24 hours."
-          ctaLabel="Get estimate"
-          beforeNote="No mobile layout. Broken contact form. Phone number buried in a footer image."
-          afterNote="Click-to-call hero. Estimate form lands in your inbox and texts your phone."
+          business="Pro Locksmith — Fort Lauderdale, FL"
+          vertical="Selected rebuild · Locksmith / 24-hr service"
+          beforeYear="dated"
+          beforeNote="Cluttered header. Tiny mobile tap targets. Logo + phone competing for attention."
+          afterNote="Single-action hero. Tap-to-call front and center. Service areas above the fold."
+          beforeMedia={{ type: 'image', src: '/portfolio/locksmith-before.png' }}
+          afterMedia={{ type: 'video', src: '/portfolio/locksmith-after.mp4' }}
         />
       </div>
     </div>
@@ -123,28 +123,46 @@ const faqs = [
     <div class="container-tight">
       <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
         <div>
-          <span class="eyebrow">Selected work</span>
-          <h2 class="mt-3 text-3xl md:text-4xl font-serif">Before and after.</h2>
+          <span class="eyebrow">Recent client launches</span>
+          <h2 class="mt-3 text-3xl md:text-4xl font-serif">What the finished sites look like.</h2>
         </div>
         <a href="/work" class="text-sm text-accent-700 hover:text-accent-800">View all rebuilds &rarr;</a>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
-        <BeforeAfter
-          business="Linden Hill Salon"
-          vertical="Concept rebuild · Beauty"
-          beforeYear="2015"
-          afterHero="Color, cuts, blowouts — by appointment."
-          ctaLabel="Book now"
-        />
-        <BeforeAfter
-          business="Calder & Sons Plumbing"
-          vertical="Concept rebuild · Trades"
-          beforeYear="2008"
-          afterHero="24/7 emergency plumbing. We answer."
-          ctaLabel="Call now"
-          beforeNote="Flash-era layout. Dead 'emergency' phone link. No reviews shown."
-          afterNote="One-tap emergency call. Live Google reviews. Service-area map."
-        />
+        <article class="rounded-xl border border-ink-200 bg-white overflow-hidden shadow-sm">
+          <div class="aspect-[16/9] bg-ink-100 relative overflow-hidden">
+            <img
+              src="/portfolio/insulation-after.png"
+              alt="Insulation Co. — finished website"
+              loading="lazy"
+              class="absolute inset-0 h-full w-full object-cover object-top"
+            />
+          </div>
+          <div class="px-5 py-4 border-t border-ink-200 flex items-center justify-between">
+            <div>
+              <div class="text-sm font-medium text-ink-900">Insulation Co.</div>
+              <div class="text-xs text-ink-500">Live · Home services / South Florida</div>
+            </div>
+            <span class="text-[11px] uppercase tracking-wider text-accent-700">Standard</span>
+          </div>
+        </article>
+        <article class="rounded-xl border border-ink-200 bg-white overflow-hidden shadow-sm">
+          <div class="aspect-[16/9] bg-ink-100 relative overflow-hidden">
+            <img
+              src="/portfolio/directory-after.png"
+              alt="Gold Touch List — finished website"
+              loading="lazy"
+              class="absolute inset-0 h-full w-full object-cover object-top"
+            />
+          </div>
+          <div class="px-5 py-4 border-t border-ink-200 flex items-center justify-between">
+            <div>
+              <div class="text-sm font-medium text-ink-900">Gold Touch List</div>
+              <div class="text-xs text-ink-500">Live · Directory / Nationwide</div>
+            </div>
+            <span class="text-[11px] uppercase tracking-wider text-accent-700">Pro</span>
+          </div>
+        </article>
       </div>
     </div>
   </section>
