@@ -9,6 +9,7 @@ interface Props {
   vertical: string;
   beforeNote?: string;
   afterNote?: string;
+  beforeLabel?: string;
   beforeYear?: string;
   afterHero?: string;
   ctaLabel?: string;
@@ -21,6 +22,7 @@ const {
   vertical,
   beforeNote = 'No mobile layout. Broken links. Last updated 2014.',
   afterNote = 'Mobile-first. Fast. Booking form wired to email + SMS.',
+  beforeLabel = 'Broken',
   beforeYear = '2014',
   afterHero = 'Trusted by 1,200+ local customers.',
   ctaLabel = 'Book now',
@@ -36,7 +38,7 @@ const conceptLabel = beforeMedia || afterMedia ? 'Selected rebuild' : 'Concept r
     <div class="p-5">
       <div class="flex items-center justify-between mb-3">
         <span class="text-[11px] uppercase tracking-wider text-ink-400 font-medium">Before</span>
-        <span class="text-[11px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded">Broken{beforeYear ? ` · ${beforeYear}` : ''}</span>
+        <span class="text-[11px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded">{beforeLabel}{beforeYear ? ` · ${beforeYear}` : ''}</span>
       </div>
       <div class="aspect-[4/3] rounded-md border border-ink-300 relative overflow-hidden shadow-inner bg-ink-100">
         {beforeMedia ? (

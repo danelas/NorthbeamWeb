@@ -104,11 +104,11 @@ This makes a "Pick a time directly" link appear on /contact.
 ### First-time push to GitHub
 
 ```sh
-cd C:\Users\dandu\Downloads\mainline-web
+cd C:\Users\dandu\Downloads\northbeam-web
 git init
 git add .
 git commit -m "Initial Northbeam Web site"
-gh repo create mainline-web --private --source=. --remote=origin --push
+gh repo create northbeam-web --private --source=. --remote=origin --push
 ```
 
 (If you don't have `gh` CLI: create the repo manually at github.com/new, then `git remote add origin <url>` and `git push -u origin main`.)
@@ -116,9 +116,9 @@ gh repo create mainline-web --private --source=. --remote=origin --push
 ### Connect to Vercel
 
 1. Go to [vercel.com/new](https://vercel.com/new) → sign in with GitHub.
-2. Import `mainline-web` repo.
+2. Import `northbeam-web` repo.
 3. Framework preset: **Astro** (auto-detected).
-4. Click **Deploy**. Live in ~60 seconds at `mainline-web.vercel.app`.
+4. Click **Deploy**. Live in ~60 seconds at `northbeam-web.vercel.app`.
 
 ### Wire your custom domain
 
